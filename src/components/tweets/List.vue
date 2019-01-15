@@ -5,17 +5,25 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 import {mapGetters} from 'vuex';
 import {Tweet} from '@/interfaces';
 import ListItem from './ListItem.vue';
+import {User} from '@/interfaces';
 
 @Component({
   components: {ListItem},
-  computed: mapGetters(['tweets']),
+  computed: mapGetters(['currentUser', 'getTweets']),
 })
 export default class List extends Vue {
-  private tweets!: Tweet[];
+  @Prop() public onlyOwned!: boolean;
+  private currentUser!: User;
+  private getTweets!: (filter?: User) => Tweet[];
+  private tweets: Tweet[] = [];
+
+public   mounted() {
+    this.tweets = this.getTweets(this.onlyOwned ? this.currentUser : undefined);
+  }
 }
 </script>
 

@@ -1,6 +1,9 @@
 import {State} from './state';
+import {User} from '@/interfaces';
 
 export const getters = {
   fetchTweetsPending: (state: State) => state.fetchPending,
-  tweets: (state: State) => state.items,
+  getTweets: (state: State) => (filter?: User) => {
+    return !filter ? state.items : state.items.filter((tweet) => filter.account === tweet.author.account);
+  },
 };

@@ -9,6 +9,11 @@
       </p>
       <p class="list-item-message">{{tweet.message}}</p>
       <img v:if="tweet.image" :src="tweet.image" class="list-item-image" alt=""/>
+      <ActionBar
+        :answer="tweet.shares.answer"
+        :like="tweet.shares.like"
+        :retweet="tweet.shares.retweet"
+      />
     </div>
   </div>
 </template>
@@ -17,8 +22,11 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import gravatarHelper from '@/helpers/gravatar';
 import {Tweet} from '@/interfaces';
+import ActionBar from './ActionBar.vue';
 
-@Component
+@Component({
+  components: {ActionBar},
+})
 export default class ListItem extends Vue {
   @Prop() public tweet!: Tweet;
 
@@ -43,23 +51,5 @@ export default class ListItem extends Vue {
     p { margin: 0; }
     .list-item-message { margin: 5px 0; }
     .list-item-image { margin: 5px 0; border-radius: 3px; }
-    .list-item-actions {
-      button {
-        margin-right: 20px; min-width: 40px;
-        font-family: $font; font-size: .9em; font-weight: $fw-semibold; color: $dark-grey;
-        transition: color 200ms linear;
-
-        &:before {
-          margin-right: 5px;
-          font-family: $fontAwesome; font-size: 1.3em;
-        }
-        &:hover { text-decoration: none; }
-
-      }
-      .answer.active, .answer:hover,
-      .pm:hover { color: $blue; }
-      .like.active, .like:hover { color: $red; }
-      .retweet.active, .retweet:hover { color: $green; }
-    }
   }
 </style>

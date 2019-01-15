@@ -1,7 +1,7 @@
 <template>
   <div class="writer-block--fold" @click="focus()">
-    <img :src="avatar" alt={user.name} class="avatar" />
-    <input type="text" placeholder="Ecrivez votre texte ici..."/>
+    <img :src="avatar" :alt="user.name" class="avatar" />
+    <input type="text" placeholder="Ecrivez votre texte ici..." @focus="focus()"/>
     <i class="fa fa-picture-o"/>
   </div>
 </template>
@@ -27,7 +27,3 @@ export default class SimpleWriter extends Vue {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

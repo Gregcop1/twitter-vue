@@ -1,6 +1,6 @@
 <template>
   <div class="writer-block--fold" @click="focus()">
-    <img :src="avatar" :alt="user.name" class="avatar" />
+    <img :src="getAvatar(currentUser.email)" :alt="currentUser.name" class="avatar" />
     <input type="text" placeholder="Ecrivez votre texte ici..." @focus="focus()"/>
     <i class="fa fa-picture-o"/>
   </div>
@@ -10,17 +10,17 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import gravatarHelper from '@/helpers/gravatar';
 import { User } from '@/interfaces/User';
+import {mapGetters} from 'vuex';
 
-@Component
+@Component({
+  computed: mapGetters(['currentUser']),
+})
 export default class SimpleWriter extends Vue {
   @Prop() public onFocus!: () => void;
+  public getAvatar: (email: string) => string = gravatarHelper.getAvatar;
 
-  private user: User = {account: 'gregcop1', email: 'gregcop1@gmail.com', name: 'Grégory Copin'};
+  private currentUser!: User;
   private avatar: string = '';
-
-  public mounted() {
-    this.avatar = gravatarHelper.getAvatar(this.user.email);
-  }
 
   public focus() {
     this.$emit('onFocus');

@@ -11,5 +11,10 @@ export default new Router({
       name: 'home',
       component: Home,
     },
+    {
+      path: '/my-tweets',
+      name: 'my-tweets',
+      component: () => undefined,
+    },
   ],
 });

@@ -1,7 +1,7 @@
 import md5 from 'md5';
 
 const gravatarHelper = {
-    getAvatar: (email: string) => {
+    getAvatar: (email: string): string => {
         return `https://www.gravatar.com/avatar/${md5(email.trim().toLowerCase())}`;
     },
 };

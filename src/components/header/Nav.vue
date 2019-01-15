@@ -2,7 +2,7 @@
   <nav class="main-nav">
     <ul>
       <li v-for="link in links" :key="link.routeName">
-        <router-link :to="{ name: link.routeName }" class="nav-item" activeClass="nav-item--active">
+        <router-link :to="{ name: link.routeName }" class="nav-item" activeClass="nav-item--active" exact>
           <i class="fa" :class="[link.icon]"/> {{ link.label }}
         </router-link>
       </li>

@@ -29,4 +29,15 @@ export default class App extends Vue {
 
 <style lang="scss">
   @import "./stylesheets/index.scss";
+
+  .main-container {
+    padding: $page-padding 0;
+
+    .column { display: inline-block; vertical-align: top; }
+    .aside-primary,
+    .aside-secondary { width: 23%; }
+    .aside-primary { margin-right: $page-padding; }
+    .aside-secondary { margin-left: $page-padding; }
+    .main-content { width: 50%; }
+  }
 </style>

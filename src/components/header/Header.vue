@@ -6,8 +6,8 @@
         <i
           class="fa fa-fw"
           :class="{
-            'fa-spinner fa-pulse': fetchTweetsPending,
-            'fa-twitter': !fetchTweetsPending,
+            'fa-spinner fa-pulse': tweetPending,
+            'fa-twitter': !tweetPending,
           }"
         />
       </p>
@@ -22,10 +22,10 @@ import {mapGetters} from 'vuex';
 
 @Component({
   components: {Nav},
-  computed: mapGetters(['fetchTweetsPending']),
+  computed: mapGetters(['tweetPending']),
 })
 export default class Header extends Vue {
-  private fetchTweetsPending!: boolean;
+  private tweetPending!: boolean;
 }
 </script>
 

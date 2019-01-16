@@ -11,15 +11,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import {Action} from 'vuex-class';
 import Header from './components/header/Header.vue';
-import {mapActions} from 'vuex';
 
 @Component({
   components: {Header},
-  methods: mapActions(['fetchTweets']),
 })
 export default class App extends Vue {
-  private fetchTweets!: () => void;
+  @Action('fetchTweets') private fetchTweets!: () => void;
 
   public mounted() {
     this.fetchTweets();

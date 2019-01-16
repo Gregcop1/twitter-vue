@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from '@/store.ts';
 import Home from './views/Home.vue';
 import MyTweets from './views/MyTweets.vue';
 

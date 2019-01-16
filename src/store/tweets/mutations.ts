@@ -2,9 +2,13 @@ import {State} from './state';
 import {Tweet} from '@/interfaces';
 
 export const mutations = {
-  fetchTweetsPending: (state: State) => state.fetchPending = true,
+  addTweetSuccess: (state: State, payload: Tweet) => {
+    state.tweetPending = false;
+    state.items = [payload, ...state.items];
+  },
   fetchTweetsSuccess: (state: State, payload: Tweet[]) => {
-    state.fetchPending = false;
+    state.tweetPending = false;
     state.items = payload;
   },
+  tweetPending: (state: State) => state.tweetPending = true,
 };

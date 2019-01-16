@@ -13,6 +13,7 @@
           'writer-actions-counter--alert': isBelowEnd,
         }">{{ remaining }}</span>
       <button
+        type="submit"
         class="writer-actions-submit"
         :class="{
           'writer-actions-submit--disabled': !isTweetable

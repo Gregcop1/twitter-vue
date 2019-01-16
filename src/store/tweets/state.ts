@@ -1,11 +1,11 @@
 import {Tweet} from '@/interfaces';
 
 export interface State {
-  fetchPending: boolean;
+  tweetPending: boolean;
   items: Tweet[];
 }
 
 export const state: State = {
-  fetchPending: false,
+  tweetPending: false,
   items: [],
 };

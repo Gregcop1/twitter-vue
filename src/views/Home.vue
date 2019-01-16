@@ -3,7 +3,7 @@
     <LeftSidebar />
     <div class="column main-content">
       <WriterContainer />
-      <List :onlyOwned="false" />
+      <List :tweets="tweets" />
     </div>
     <RightSidebar />
   </div>
@@ -15,6 +15,8 @@ import WriterContainer from '@/components/writer/WriterContainer.vue';
 import LeftSidebar from '@/components/sidebar/LeftSidebar.vue';
 import RightSidebar from '@/components/sidebar/RightSidebar.vue';
 import List from '@/components/tweets/List.vue';
+import {Getter} from 'vuex-class';
+import {Tweet} from '../interfaces';
 
 @Component({
   components: {
@@ -24,5 +26,7 @@ import List from '@/components/tweets/List.vue';
     WriterContainer,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  @Getter('tweets') public tweets!: Tweet[];
+}
 </script>

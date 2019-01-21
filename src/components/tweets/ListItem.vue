@@ -5,7 +5,7 @@
       <p class="list-item-meta">
         <span class="list-item-name">{{tweet.author.name}}</span>
         <span class="list-item-account">{{tweet.author.account}}</span>
-        <span class="list-item-date"></span>
+        <span class="list-item-date">{{fromNow(tweet.date)}}</span>
       </p>
       <p class="list-item-message">{{tweet.message}}</p>
       <img v:if="tweet.image" :src="tweet.image" class="list-item-image" alt=""/>
@@ -20,6 +20,7 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+import dateHelper from '@/helpers/date';
 import gravatarHelper from '@/helpers/gravatar';
 import {Tweet} from '@/interfaces';
 import ActionBar from './ActionBar.vue';
@@ -30,6 +31,7 @@ import ActionBar from './ActionBar.vue';
 export default class ListItem extends Vue {
   @Prop() public tweet!: Tweet;
 
+  public fromNow: (timestamp: number) => string = dateHelper.fromNow;
   public getAvatar: (email: string) => string = gravatarHelper.getAvatar;
 }
 </script>

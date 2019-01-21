@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@types/md5": "^2.1.33",
+    "@types/moment": "^2.13.0",
     "md5": "^2.2.1",
+    "moment": "^2.24.0",
     "vue": "^2.5.21",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",

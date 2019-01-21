@@ -17,15 +17,14 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
+import {Getter} from 'vuex-class';
 import Nav from './Nav.vue';
-import {mapGetters} from 'vuex';
 
 @Component({
   components: {Nav},
-  computed: mapGetters(['tweetPending']),
 })
 export default class Header extends Vue {
-  private tweetPending!: boolean;
+  @Getter('tweetPending') private tweetPending!: boolean;
 }
 </script>
 

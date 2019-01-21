@@ -1,23 +1,23 @@
 <template>
   <div class="block short-profile">
     <div class="profile-infos">
-      <img :src="getAvatar(currentUser.email)" :alt="currentUser.name" class="avatar"/>
+      <img :src="getAvatar(user.email)" :alt="user.name" class="avatar"/>
       <p class="profile-metas">
-        {{currentUser.name}}
-        <span class="profile-account">{{currentUser.account}}</span>
+        {{user.name}}
+        <span class="profile-account">{{user.account}}</span>
       </p>
       <div class="profile-relation">
         <p class="col col-30">
           Tweets
-          <router-link :to="{name: 'my-tweets'}">{{currentUser.tweetCount}}</router-link>
+          <router-link :to="{name: 'my-tweets'}">{{user.tweetCount}}</router-link>
         </p>
         <p class="col col-40">
           Abonnements
-          <router-link :to="{name: 'my-tweets'}">{{currentUser.subscriber}}</router-link>
+          <router-link :to="{name: 'my-tweets'}">{{user.subscriber}}</router-link>
         </p>
         <p class="col col-30">
           Abonnés
-          <router-link :to="{name: 'my-tweets'}">{{currentUser.subscription}}</router-link>
+          <router-link :to="{name: 'my-tweets'}">{{user.subscription}}</router-link>
         </p>
       </div>
     </div>
@@ -26,16 +26,15 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import {mapGetters} from 'vuex';
+import {Getter} from 'vuex-class';
 import gravatarHelper from '@/helpers/gravatar';
 import {User} from '@/interfaces';
 
-@Component({
-  computed: mapGetters(['currentUser']),
-})
+@Component
 export default class ShortProfile extends Vue {
+
   public getAvatar: (email: string) => string = gravatarHelper.getAvatar;
-  private currentUser!: User;
+  @Getter('currentUser') private user!: User;
 }
 </script>
 

@@ -28,7 +28,6 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
 export default class ActionBar extends Vue {
-
   public get remaining() {
     return ActionBar.MAX_LENGTH - this.length;
   }

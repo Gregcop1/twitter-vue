@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <TheHeader />
     <div class="main-container">
       <div class="container">
         <router-view/>
@@ -12,10 +12,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import {Action} from 'vuex-class';
-import Header from './components/header/Header.vue';
+import TheHeader from './components/header/TheHeader.vue';
 
 @Component({
-  components: {Header},
+  components: {TheHeader},
 })
 export default class App extends Vue {
   @Action('fetchTweets') private fetchTweets!: () => void;

@@ -1,15 +1,15 @@
 <template>
   <aside class="column aside-secondary">
-    <Suggestion />
+    <SuggestionList />
   </aside>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import Suggestion from './Suggestion.vue';
+import SuggestionList from './SuggestionList.vue';
 
 @Component({
-  components: {Suggestion},
+  components: {SuggestionList},
 })
 export default class RightSidebar extends Vue {
 }

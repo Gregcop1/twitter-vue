@@ -41,7 +41,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 
 @Component
-export default class Suggestion extends Vue {
+export default class SuggestionList extends Vue {
 }
 </script>
 

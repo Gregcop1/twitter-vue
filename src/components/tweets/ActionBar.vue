@@ -1,8 +1,8 @@
 <template>
   <p class="list-item-actions">
-    <button class="fa fa-comment-o fa-fw answer" :class="{active: !!answer}">{{answer}}</button>
-    <button class="fa fa-retweet fa-fw retweet" :class="{active: !!retweet}">{{retweet}}</button>
-    <button class="fa fa-fw like" :class="{active: !!like, 'fa-heart': !!like, 'fa-heart-o': !like}">{{like}}</button>
+    <button :class="['fa', 'fa-comment-o', 'fa-fw', 'answer', {active: !!answer}]">{{answer}}</button>
+    <button :class="['fa', 'fa-retweet', 'fa-fw', 'retweet', {active: !!retweet}]">{{retweet}}</button>
+    <button :class="['fa', 'fa-fw', 'like', {active: !!like, 'fa-heart': !!like, 'fa-heart-o': !like}]">{{like}}</button>
     <button class="fa fa-envelope-o fa-fw pm" />
   </p>
 </template>

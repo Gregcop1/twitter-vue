@@ -7,17 +7,15 @@
     </span>
     <span class="writer-actions-submit-block">
       <span
-        class="writer-actions-counter"
-        :class="{
+        :class="['writer-actions-counter', {
           'writer-actions-counter--danger': isNearTheEnd,
           'writer-actions-counter--alert': isBelowEnd,
-        }">{{ remaining }}</span>
+        }]">{{ remaining }}</span>
       <button
         type="submit"
-        class="writer-actions-submit"
-        :class="{
+        :class="['writer-actions-submit', {
           'writer-actions-submit--disabled': !isTweetable
-        }"
+        }]"
       >Tweeter</button>
     </span>
   </p>

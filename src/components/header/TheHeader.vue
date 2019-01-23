@@ -1,14 +1,13 @@
 <template>
   <header class="main-header">
     <div class="container">
-      <Nav />
+      <TheMainNav />
       <p class="logo">
         <i
-          class="fa fa-fw"
-          :class="{
+          :class="['fa', 'fa-fw', {
             'fa-spinner fa-pulse': tweetPending,
             'fa-twitter': !tweetPending,
-          }"
+          }]"
         />
       </p>
     </div>
@@ -18,12 +17,12 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import {Getter} from 'vuex-class';
-import Nav from './Nav.vue';
+import TheMainNav from './TheMainNav.vue';
 
 @Component({
-  components: {Nav},
+  components: {TheMainNav},
 })
-export default class Header extends Vue {
+export default class TheHeader extends Vue {
   @Getter('tweetPending') private tweetPending!: boolean;
 }
 </script>

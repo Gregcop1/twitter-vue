@@ -15,7 +15,7 @@ import {Component, Vue} from 'vue-property-decorator';
 import {NavLink} from '@/interfaces';
 
 @Component
-export default class Nav extends Vue {
+export default class TheMainNav extends Vue {
   private links: NavLink[] = [
     {icon: 'fa-home', label: 'Accueil', routeName: 'home'},
     {icon: 'fa-bell-o', label: 'Mes tweets', routeName: 'my-tweets'},

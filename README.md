@@ -1,4 +1,4 @@
-# twitter-vue
+# Twitter example build with Vue.js
 
 ## Project setup
 ```
